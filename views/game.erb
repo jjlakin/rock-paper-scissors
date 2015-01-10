@@ -1,0 +1,12 @@
+<form action="/single_player" method="post">
+	<input  type="image" src="/images/rock-02.svg" alt="Submit Form" name="selection" class="Forms" value="rock">
+
+	<input  type="image" src="/images/paper-02.svg" name="selection" class="Forms" value="paper">
+
+	<input  type="image" src="/images/scissors-02.svg" name="selection" class="Forms" value="scissors" style="margin-right:0px">
+</form>
+
+<h2 class="centered">
+<%= @result %>
+<%= @score.inspect %>
+</h2>

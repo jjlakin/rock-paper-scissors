@@ -1,0 +1,45 @@
+
+.page {
+	width:100vw;
+	height:100vh;
+	background-color: #1B75BB;
+}
+
+.main_container {
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #1B75BB;
+
+}
+
+.centered {
+	margin-right:auto;
+  margin-left:auto;
+  text-align: center
+}
+
+.Forms {
+  position: inline-block;
+  width:20%;
+ 
+  margin-right:auto;
+	margin-left:auto;
+	padding: 6%
+}
+
+
+#title {
+	padding-top: 30px
+}
+
+
+/*button,
+input {  
+ 	width:10%;
+ 	height:10%;
+  
+  background-color: red;
+  margin-right:auto;
+  margin-left:auto;
+}*/
