@@ -34,14 +34,17 @@ class RPSgame < Sinatra::Base
 
 	post '/single_player' do 
 		
-		
+		@selection = {rock: "/images/sprsl-03.svg", paper: "/images/sprsl-02.svg", scissors: "/images/sprsl-04.svg" }
 		game.player1 = params[:selection].to_sym
 		game.player2 = game.computer_choice
+		@player1_choice = game.player1
+		@player2_choice = game.player2
 		@result = game.player1_result
 		score = session[:score]
 		score += 1 if @result == :win
 		session[:score] = score
 		@score = session[:score]
+		
 		erb :game
 		
 	end

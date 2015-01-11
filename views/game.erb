@@ -1,12 +1,27 @@
 <form action="/single_player" method="post">
-	<input  type="image" src="/images/rock.svg" alt="Submit Form" name="selection" class="Forms" value="rock">
+	<input  type="image" src="/images/sprsl-03.svg" alt="Submit Form" name="selection" class="Forms" value="rock">
 
-	<input  type="image" src="/images/paper.svg" name="selection" class="Forms" value="paper">
+	<input  type="image" src="/images/sprsl-02.svg" name="selection" class="Forms" value="paper">
 
-	<input  type="image" src="/images/scissors.svg" name="selection" class="Forms" value="scissors" style="margin-right:0px">
+	<input  type="image" src="/images/sprsl-04.svg" name="selection" class="Forms" value="scissors" >
 </form>
 
+<% if @player1_choice %>
+	<h4 class="choice, centered">
+		You chose:
+		<img src= <%= @selection[@player1_choice] %> >
+		Player 2 chose:
+		<img src= <%= @selection[@player2_choice] %> >
+		
+	<h4>
+<% end %>
+
 <h2 class="centered">
-<%= @result %>
-<%= @score.inspect %>
+	<%= @result %>
 </h2>
+
+<% if @score %>
+	<h4 class="score, centered">
+		<%= @score.inspect %>
+	</h4>
+<% end %>
