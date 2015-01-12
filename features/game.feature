@@ -5,10 +5,10 @@ Feature: Place the Ships from an initiated fleet
 
 	Scenario: scissors beats paper
     Given I am on the homepage
-    When I press "scissors"
-    Then I should see "You win!"
+    When I fill in "name" with "johnny" within "test"
+    And I press "test"
+    And I press "rock"
+    Then I should see "Johnny chose:"
 
 	Scenario: rock looses to paper
-		Given I am on the homepage
-		When I press "rock"
-		Then i should see "You lose!"
+		

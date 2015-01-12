@@ -1,4 +1,4 @@
-<form action="/single_player" method="post">
+<form action="/single_player" method="post" >
 	<input  type="image" src="/images/sprsl-03.svg" alt="Submit Form" name="selection" class="Forms" value="rock">
 
 	<input  type="image" src="/images/sprsl-02.svg" name="selection" class="Forms" value="paper">
@@ -8,20 +8,21 @@
 
 <% if @player1_choice %>
 	<h4 class="choice, centered">
-		You chose:
+		<%= @player1_name %> chose:
 		<img src= <%= @selection[@player1_choice] %> >
-		Player 2 chose:
+		<%= @player2_name %> chose:
 		<img src= <%= @selection[@player2_choice] %> >
 		
 	<h4>
 <% end %>
 
-<h2 class="centered">
-	<%= @result %>
-</h2>
-
+<% if @result %>
+	<h1 class="centered">
+		You <%= @result %>
+	</h1>
+<% end %>
 <% if @score %>
 	<h4 class="score, centered">
-		<%= @score.inspect %>
+		Wins: <%= @score.inspect %>
 	</h4>
 <% end %>

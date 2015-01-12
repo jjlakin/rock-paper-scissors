@@ -2,26 +2,27 @@
 .page {
 	width:100vw;
 	height:100vh;
-	background-color: #E0E0DF;
+	background-color: #0D2E4F;
 }
 
 .main_container {
 	width: 60%;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: #E0E0DF;
+	/*background-color: #E0E0DF;*/
 
 }
 
 .centered {
 	margin-right:auto;
   margin-left:auto;
-  text-align: center
+  text-align: center;
+  color:white
 }
 
 .Forms {
-  position: inline-block;
-  width:33%;
+  
+  width:32%;
  
   margin-right:auto;
 	margin-left:auto;

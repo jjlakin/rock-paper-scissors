@@ -12,17 +12,27 @@ class RPSgame < Sinatra::Base
 	game = Game.new
 
   get '/' do
-    'Hello RPSgame!'
+    
     session[:score] = 0
     erb :index
   end
 
 	post '/' do 
 		
-		player1 = :first
-		session[:player1] = player1
-		
-		puts session[:score]
+		player1 = Player.new
+		player2 = Player.new
+
+		player1.name = params[:name]
+		player2.name = params[:name2] == '' ? 'computer' : params[:name2]
+
+		player2.test = true if params[:test]
+
+		game.player1 = player1
+		game.player2 = player2
+
+		@player1_name = game.player1.name
+		@player2_name = game.player2.name
+			
 		erb :game
 		
 	end
@@ -33,20 +43,32 @@ class RPSgame < Sinatra::Base
   end
 
 	post '/single_player' do 
+
+		redirect '/result' if game.winner
 		
+		@player1_name = game.player1.name
+		@player2_name = game.player2.name
+
 		@selection = {rock: "/images/sprsl-03.svg", paper: "/images/sprsl-02.svg", scissors: "/images/sprsl-04.svg" }
-		game.player1 = params[:selection].to_sym
-		game.player2 = game.computer_choice
-		@player1_choice = game.player1
-		@player2_choice = game.player2
+
+		game.player1.choice = params[:selection].to_sym
+		game.player2.choice = game.player2.test ? :rock : game.computer_choice
+
+		@player1_choice = game.player1.choice
+		@player2_choice = game.player2.choice
+
 		@result = game.player1_result
-		score = session[:score]
-		score += 1 if @result == :win
-		session[:score] = score
-		@score = session[:score]
+		@score = game.player1.wins
 		
 		erb :game
 		
+	end
+
+	get '/result' do
+
+		@winner = game.winner
+		erb :result
+	
 	end
 
 	
