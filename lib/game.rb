@@ -5,9 +5,9 @@ class Game
 	attr_accessor :player1, :player2, :result, :test
 	
 
-	SELECTION = [:rock, :paper, :scissors]
+	SELECTION = [:rock, :paper, :scissors, :spock, :lizard]
 	# EXPANDED_SELECTION = SELECTION << [:spock, :lizard]
-	RESULT = [:tie, :won, :lost]
+	RESULT = [:tie, :won, :lost, :win, :lost]
 	# EXPANDED_RESULT = RESULT << [:win, :lose]
 
 	def initialize
@@ -16,9 +16,6 @@ class Game
 		result = nil
 	end
 
-	# def result
-	# 	@result
-	# end
 
 	def player1_result 
 		result = RESULT[SELECTION.index(self.player1.choice) - SELECTION.index(@player2.choice)]
@@ -28,18 +25,6 @@ class Game
 		return result
 
 	end
-
-	# def player1 player
-	# 	@player1	= player
-	# end
-
-	# def player1?
-	# 	@player1
-	# end
-
-	# def player2 player
-	# 	@player2	= player
-	# end
 		
 	def computer_choice
 		SELECTION.sample

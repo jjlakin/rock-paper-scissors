@@ -49,7 +49,7 @@ class RPSgame < Sinatra::Base
 		@player1_name = game.player1.name
 		@player2_name = game.player2.name
 
-		@selection = {rock: "/images/sprsl-03.svg", paper: "/images/sprsl-02.svg", scissors: "/images/sprsl-04.svg" }
+		@selection = {rock: "/images/sprsl-03.svg", paper: "/images/sprsl-02.svg", scissors: "/images/sprsl-04.svg", spock: "/images/sprsl-01.svg", lizard: "/images/sprsl-05.svg"}
 
 		game.player1.choice = params[:selection].to_sym
 		game.player2.choice = game.player2.test ? :rock : game.computer_choice
